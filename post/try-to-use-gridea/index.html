@@ -1,58 +1,112 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>Gridea新尝试 | 角落</title>
-<link rel="shortcut icon" href="https://katasumi.github.io//favicon.ico?v=1557500827426">
+<meta name="description" content="Point the stars">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://katasumi.github.io//favicon.ico?v=1557500928541">
 <link rel="stylesheet" href="https://katasumi.github.io//styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://katasumi.github.io/">
-  <img class="avatar" src="https://katasumi.github.io//images/avatar.png?v=1557500827426" alt="">
-  </a>
-  <h1 class="site-title">
-    角落
-  </h1>
-  <p class="site-description">
-    Point the stars
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://katasumi.github.io/">
+        <img class="avatar" src="https://katasumi.github.io//images/avatar.png?v=1557500928541" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://katasumi.github.io/">
+        <h1 class="site-title">角落</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://katasumi.github.io//post-images/hello-gridea.png')">
+            </div>
+          
+          <h2 class="post-title">Gridea新尝试</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-05-09</span>
+            
+          </div>
+          <div class="post-content">
+            <p>今天偶尔发现一个简单好看的博客，是由<a href="https://gridea.dev/">Gridea</a>搭建的，便管不住自己蠢蠢欲动的折腾欲了。
+本以为Gridea是一个博客系统，仔细读题才发现原来是「静态博客写作工具」，我离使用Gridea还缺一个静态博客。</p>
+<!-- more -->
+<p>Github我始终搞不定，但为了可爱的博客模板，决定鼓起勇气沉下心再次尝试。网上是铺天盖地的GitHub教程，总有一款或几款合适我的木鱼脑袋。经过我的一番摸索后终于成功摸到了我的<a href="https://katasumi.github.io">新静态博客</a>！</p>
+<p>虽然才接触Gridea不到一天，我的理解是Gridea是一个帮助建静态博客、提供Markdown文本编辑器、简单的主题自定义的工具。界面简洁清新，颜值也很具吸引力。一种小众的优越感（？）油然而生。在遇到Gridea之前，我从未使用过GitHub托管静态博客，因为我卡在用git那个步骤上了……实际上这也是萌新尝试静态博客，也包括Gridea最大的壁垒吧。用过静态博客的人应该更能体会到Gridea的方便之处吧。</p>
+<p>Gridea和Bitcron一样都是采用文件夹作路径，但不同的是Bitcron的模板文件是.jade，文章/页面是.md，Gridea所有页面都是index.html，Bitcron本质上还是动态博客。而我们而耳熟能详的hexo也跟Bitcron有相似住处，它能将.md文件生成.html静态页面。相比之下Gridea是一个真正意义上的纯静态页面生成工具。那么问题来了，我们虽然可以通过Gridea采用Markdown格式写文章，可生成的文章是index.html不是.md文件，后期转移到其他静态博客的时候文章就很难处理了。</p>
+<p>此外，还发现Gridea只能单向同步，也就是Gridea→GitHub，在Gridea客户端里做出的改变可以同步到GitHub，而GitHub的改变无法同步回Gridea客户端，于是我在公司和家里电脑各安装了一个Gridea客户端就尴尬了……如果在GitHub更改了css，在Gridea客户端点击同步后，css又会被同步回默认样式……看来Gridea不太适合喜欢自定义的用户哦。</p>
+<p>最后推荐一个适合小白的<a href="https://blog.csdn.net/weixin_38317875/article/details/80925750">教程</a>，我是看了这个才发现git和GitHub原来不是一个东西……？_ ？</p>
+
+          </div>
+        </div>
+
+        
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">Point the stars</div>
   <div class="social-container">
     
       
@@ -66,51 +120,26 @@
       
     
   </div>
-</div>
-
-      
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              Gridea新尝试
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2019-05-09 ·
-              </time>
-              
-            </div>
-            
-              <div class="post-feature-image" style="background-image: url('https://katasumi.github.io//post-images/hello-gridea.png')">
-              </div>
-            
-            <div class="post-content">
-              <p>今天偶尔发现一个简单好看的博客，是由<a href="https://gridea.dev/">Gridea</a>搭建的，便管不住自己蠢蠢欲动的折腾欲了。
-本以为Gridea是一个博客系统，仔细读题才发现原来是「静态博客写作工具」，我离使用Gridea还缺一个静态博客。</p>
-<!-- more -->
-<p>Github我始终搞不定，但为了可爱的博客模板，决定鼓起勇气沉下心再次尝试。网上是铺天盖地的GitHub教程，总有一款或几款合适我的木鱼脑袋。经过我的一番摸索后终于成功摸到了我的<a href="https://katasumi.github.io">新静态博客</a>！</p>
-<p>虽然才接触Gridea不到一天，我的理解是Gridea是一个帮助建静态博客、提供Markdown文本编辑器、简单的主题自定义的工具。界面简洁清新，颜值也很具吸引力。一种小众的优越感（？）油然而生。在遇到Gridea之前，我从未使用过GitHub托管静态博客，因为我卡在用git那个步骤上了……实际上这也是萌新尝试静态博客，也包括Gridea最大的壁垒吧。用过静态博客的人应该更能体会到Gridea的方便之处吧。</p>
-<p>Gridea和Bitcron一样都是采用文件夹作路径，但不同的是Bitcron的模板文件是.jade，文章/页面是.md，Gridea所有页面都是index.html，Bitcron本质上还是动态博客。而我们而耳熟能详的hexo也跟Bitcron有相似住处，它能将.md文件生成.html静态页面。相比之下Gridea是一个真正意义上的纯静态页面生成工具。那么问题来了，我们虽然可以通过Gridea采用Markdown格式写文章，可生成的文章是index.html不是.md文件，后期转移到其他静态博客的时候文章就很难处理了。</p>
-<p>此外，还发现Gridea只能单向同步，也就是Gridea→GitHub，在Gridea客户端里做出的改变可以同步到GitHub，而GitHub的改变无法同步回Gridea客户端，于是我在公司和家里电脑各安装了一个Gridea客户端就尴尬了……如果在GitHub更改了css，在Gridea客户端点击同步后，css又会被同步回默认样式……看来Gridea不太适合喜欢自定义的用户哦。</p>
-<p>最后推荐一个适合小白的<a href="https://blog.csdn.net/weixin_38317875/article/details/80925750">教程</a>，我是看了这个才发现git和GitHub原来不是一个东西……？_ ？</p>
-
-            </div>
-          </article>
-        </div>
-    
-        
-
-        
-    
-        <div class="site-footer">
   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>
